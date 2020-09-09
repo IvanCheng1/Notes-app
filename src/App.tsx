@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Note from "./components/Note";
+import { getNotes, addNote, deleteNote } from "./utils/api";
 
 interface IState {
   notes: string[];
@@ -9,6 +10,10 @@ interface IState {
 }
 
 class App extends React.Component<{}, IState> {
+  componentDidMount() {
+    getNotes().then((notes) => this.setState({ notes }));
+  }
+
   state: IState = {
     notes: ["Get a hair cut", "Buy some apples"],
     input: "",
@@ -24,25 +29,30 @@ class App extends React.Component<{}, IState> {
   };
 
   handleAddNote = (): void => {
-    const { input } = this.state;
+    const { input, notes } = this.state;
 
     if (input === "") {
       this.setState({
-        alert: "Please enter a note"
-      })
-      return
+        alert: "Please enter a note",
+      });
+    } else if (notes.includes(input)) {
+      this.setState({
+        alert: "Please enter a different note",
+      });
+    } else {
+      addNote(input)
+      this.setState((prev) => ({
+        input: "",
+        notes: [...prev.notes, input],
+        alert: "",
+      }));
     }
-
-    this.setState((prev) => ({
-      input: "",
-      notes: [...prev.notes, input],
-      alert: ""
-    }));
   };
 
   handleDeleteNote = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.currentTarget;
 
+    deleteNote(value)
     this.setState((prev) => ({
       notes: prev.notes.filter((n) => n !== value),
     }));
@@ -63,7 +73,7 @@ class App extends React.Component<{}, IState> {
             />
             <button onClick={this.handleAddNote}>Add note</button>
           </div>
-          {alert === "" ? "" : <div>Please enter a note</div>}
+          {alert === "" ? "" : <div>{alert}</div>}
           {notes.map((n) => (
             <Note note={n} key={n} handleDelete={this.handleDeleteNote} />
           ))}

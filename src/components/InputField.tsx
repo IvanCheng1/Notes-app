@@ -1,4 +1,5 @@
 import React from "react";
+import Input from "./Input";
 
 interface IProps {
   value: string;
@@ -9,7 +10,8 @@ interface IProps {
 const InputField = ({ value, handleInputChange, handleAddNote }: IProps) => {
   return (
     <div className="input-field">
-      <input type="text" value={value} onChange={handleInputChange} />
+      {/* <input type="text" value={value} onChange={handleInputChange} /> */}
+      <Input value={value} handleChange={handleInputChange} />
       <button onClick={handleAddNote}>Add note</button>
     </div>
   );

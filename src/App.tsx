@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Note from "./components/Note";
-import { getNotes, addNote, deleteNote } from "./utils/api";
+import { getNotes, addNote, deleteNote, editNote } from "./utils/api";
 import InputField from "./components/InputField";
 import Alert from "./components/Alert";
 
@@ -24,10 +24,11 @@ class App extends React.Component<{}, IState> {
 
   handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.currentTarget;
-
     this.setState({
       input: value,
     });
+
+    // console.log(this.state)
   };
 
   handleAddNote = (): void => {
@@ -52,15 +53,18 @@ class App extends React.Component<{}, IState> {
     }
   };
 
-  handleDeleteNote = (e: React.FormEvent<HTMLInputElement>): void => {
-    const { value } = e.currentTarget;
-
-    deleteNote(value).then((notes) =>
+  handleDeleteNote = (note: string): void => {
+    deleteNote(note).then((notes) =>
       this.setState({
         notes,
         alert: "",
       })
     );
+  };
+
+  handleEditNote = (oldNote: string, newNote: string): void => {
+    // const { value } = e.currentTarget;
+    editNote(oldNote, newNote).then((notes) => this.setState({ notes }));
   };
 
   public render() {
@@ -76,9 +80,14 @@ class App extends React.Component<{}, IState> {
             handleAddNote={this.handleAddNote}
           />
           <Alert alert={alert} />
-          <div>
+          <div className="notes-holder">
             {notes.map((n) => (
-              <Note note={n} key={n} handleDelete={this.handleDeleteNote} />
+              <Note
+                note={n}
+                key={n}
+                handleDelete={this.handleDeleteNote}
+                handleEditNote={this.handleEditNote}
+              />
             ))}
           </div>
         </header>

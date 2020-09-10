@@ -3,6 +3,7 @@ import "./App.css";
 import Note from "./components/Note";
 import { getNotes, addNote, deleteNote } from "./utils/api";
 import InputField from "./components/InputField";
+import Alert from "./components/Alert";
 
 interface IState {
   notes: string[];
@@ -69,23 +70,17 @@ class App extends React.Component<{}, IState> {
       <div className="App">
         <header className="App-header">
           <h1>Notes App</h1>
+          <InputField
+            value={input}
+            handleInputChange={this.handleInputChange}
+            handleAddNote={this.handleAddNote}
+          />
+          <Alert alert={alert} />
           <div>
-            <InputField
-              value={input}
-              handleInputChange={this.handleInputChange}
-              handleAddNote={this.handleAddNote}
-            />
-            {/* <input
-              type="text"
-              value={input}
-              onChange={this.handleInputChange}
-            />
-            <button onClick={this.handleAddNote}>Add note</button> */}
+            {notes.map((n) => (
+              <Note note={n} key={n} handleDelete={this.handleDeleteNote} />
+            ))}
           </div>
-          {alert === "" ? "" : <div>{alert}</div>}
-          {notes.map((n) => (
-            <Note note={n} key={n} handleDelete={this.handleDeleteNote} />
-          ))}
         </header>
       </div>
     );

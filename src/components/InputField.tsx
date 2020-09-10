@@ -8,10 +8,10 @@ interface IProps {
 
 const InputField = ({ value, handleInputChange, handleAddNote }: IProps) => {
   return (
-    <>
+    <div className="input-field">
       <input type="text" value={value} onChange={handleInputChange} />
       <button onClick={handleAddNote}>Add note</button>
-    </>
+    </div>
   );
 };
 

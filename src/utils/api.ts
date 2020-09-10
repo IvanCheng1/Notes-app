@@ -10,23 +10,25 @@ export const getNotes = async (): Promise<string[] | []> => {
   return getLocalStorage();
 };
 
-export const addNote = async (note: string) => {
+export const addNote = async (note: string): Promise<string[]> => {
   // const prevNotes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "[]");
   const notes = [...getLocalStorage(), note];
   
   // localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
   setLocalStorage(notes)
+  return notes
 };
 
-export const deleteNote = async (note: string) => {
+export const deleteNote = async (note: string): Promise<string[] | []> => {
   // const prevNotes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "[]");
   const notes = getLocalStorage().filter((n: string) => n !== note);
 
   // localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
   setLocalStorage(notes)
+  return notes
 };
 
-const getLocalStorage = (): string[] => {
+const getLocalStorage = (): string[] | [] => {
   return JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "[]");
 }
 

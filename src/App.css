@@ -1,19 +1,5 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,15 +10,108 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  margin: 40px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form {
+  min-height: 50px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.input-field * {
+  /* background-color: aqua; */
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+input {
+  min-height: 40px;
+  min-width: 300px;
+  width: 100%;
+  font-size: x-large;
+  background-color: #9ca4b6;
+  outline: 0;
+  padding: 0 5px;
+  /* border: none; */
+  /* border-radius: 10px; */
+}
+
+input:focus {
+  outline: 0;
+}
+
+
+.note-edit input {
+  width: 100%;
+}
+
+button {
+  /* margin: 10px auto; */
+  padding: 10px;
+  background-color: #454d5ea3;
+  /* height: 100%; */
+  /* border: 2px solid rgba(13, 174, 177, 0.406); */
+  cursor: pointer;
+  /* border-radius: 10px; */
+  min-width: 70px;
+  /* transition: all ease 1s; */
+}
+
+button:hover {
+  /* outline: 0; */
+  /* font-weight: 700; */
+}
+
+button:focus {
+  outline: 0;
+}
+
+.delete-btn {
+  background-color: red;
+}
+
+.notes-holder {
+  border: 1px solid white;
+  width: 700px;
+  min-height: 500px;
+}
+
+.note-holder {
+  /* width: 90%; */
+  min-height: 64px;
+  margin: 0 auto;
+  border-top: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+}
+
+.note-holder:nth-child(1) {
+  border: none;
+}
+
+.note {
+  text-align: left;
+  width: 100%;
+  padding: 15px 10px;
+
+}
+
+.input-alert,
+.input-alert-spaceholder {
+  color: red;
+  height: 50px;
+  width: 400px;
+  font-size: large;
+  text-align: left;
+  padding: 15px 5px;
+}
+
+
+/* ====================== OTHER ====================== */
+
+.box {
+  border: 1px solid red;
 }

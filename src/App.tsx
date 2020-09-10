@@ -69,25 +69,23 @@ class App extends React.Component<{}, IState> {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Notes App</h1>
-          <InputField
-            value={input}
-            handleInputChange={this.handleInputChange}
-            handleAddNote={this.handleAddNote}
-          />
-          <Alert alert={alert} />
-          <div className="notes-holder">
-            {notes.map((n) => (
-              <Note
-                note={n}
-                key={n}
-                handleDelete={this.handleDeleteNote}
-                handleEditNote={this.handleEditNote}
-              />
-            ))}
-          </div>
-        </header>
+        <h1>Notes App</h1>
+        <InputField
+          value={input}
+          handleInputChange={this.handleInputChange}
+          handleAddNote={this.handleAddNote}
+        />
+        <Alert alert={alert} />
+        <div className="notes-holder">
+          {notes.map((n) => (
+            <Note
+              note={n}
+              key={n}
+              handleDelete={this.handleDeleteNote}
+              handleEditNote={this.handleEditNote}
+            />
+          ))}
+        </div>
       </div>
     );
   }

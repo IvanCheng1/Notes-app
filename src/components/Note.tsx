@@ -42,22 +42,32 @@ class Note extends React.Component<IProps, IState> {
     const { note, handleDelete } = this.props;
     const { edit, newNote } = this.state;
 
-    return (
-      <div>
-        <button value={note} onClick={() => handleDelete(note)}>
-          Delete
-        </button>
-        {edit ? (
+    if (edit) {
+      return (
+        <div className="note-holder note-edit">
           <Input value={newNote} handleChange={this.handleNewInputChange} />
-        ) : (
-          <>{note}</>
-        )}
-
-        <button value={note} onClick={() => this.handleEditButton()}>
-          {edit ? "Save" : "Edit"}
-        </button>
-      </div>
-    );
+          <button
+            className="delete-btn"
+            value={note}
+            onClick={() => handleDelete(note)}
+          >
+            Delete
+          </button>
+          <button value={note} onClick={() => this.handleEditButton()}>
+            Save
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="note-holder">
+          <div className="note">{note}</div>
+          <button value={note} onClick={() => this.handleEditButton()}>
+            Edit
+          </button>
+        </div>
+      );
+    }
   }
 }
 

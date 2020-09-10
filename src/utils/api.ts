@@ -1,6 +1,5 @@
 const NOTES_STORAGE_KEY = "NOTES_STORAGE_KEY";
 
-
 export const getNotes = async (): Promise<string[] | []> => {
   // localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(["Welcome note"]))
 

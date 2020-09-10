@@ -9,10 +9,10 @@ interface IProps {
 
 const InputField = ({ value, handleInputChange, handleAddNote }: IProps) => {
   return (
-    <div className="input-field">
+    <form className="input-field" onSubmit={(e) => e.preventDefault()}>
       <Input value={value} handleChange={handleInputChange} />
-      <button onClick={handleAddNote}>Add note</button>
-    </div>
+      <button onClick={handleAddNote}>+</button>
+    </form>
   );
 };
 

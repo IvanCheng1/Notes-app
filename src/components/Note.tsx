@@ -20,10 +20,7 @@ class Note extends React.Component<IProps, IState> {
 
   handleEditButton = () => {
     if (this.state.edit) {
-      // edit is true
-      // save
       this.props.handleEditNote(this.props.note, this.state.newNote);
-      // clear edit
       this.setState((prev) => ({
         edit: !prev.edit,
         newNote: "",
@@ -38,7 +35,6 @@ class Note extends React.Component<IProps, IState> {
 
   handleNewInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.currentTarget;
-
     this.setState({ newNote: value });
   };
 
@@ -52,17 +48,13 @@ class Note extends React.Component<IProps, IState> {
           Delete
         </button>
         {edit ? (
-          <Input
-            value={newNote}
-            handleChange={this.handleNewInputChange}
-          />
+          <Input value={newNote} handleChange={this.handleNewInputChange} />
         ) : (
           <>{note}</>
         )}
 
         <button value={note} onClick={() => this.handleEditButton()}>
           {edit ? "Save" : "Edit"}
-          {/* Edit */}
         </button>
       </div>
     );

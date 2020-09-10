@@ -27,8 +27,6 @@ class App extends React.Component<{}, IState> {
     this.setState({
       input: value,
     });
-
-    // console.log(this.state)
   };
 
   handleAddNote = (): void => {
@@ -63,7 +61,6 @@ class App extends React.Component<{}, IState> {
   };
 
   handleEditNote = (oldNote: string, newNote: string): void => {
-    // const { value } = e.currentTarget;
     editNote(oldNote, newNote).then((notes) => this.setState({ notes }));
   };
 

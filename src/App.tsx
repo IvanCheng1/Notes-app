@@ -1,7 +1,13 @@
 import React from "react";
 import "./App.css";
 import Note from "./components/Note";
-import { getNotes, addNote, deleteNote, editNote } from "./utils/api";
+import {
+  getNotes,
+  addNote,
+  deleteNote,
+  editNote,
+  deleteAllNotes,
+} from "./utils/api";
 import InputField from "./components/InputField";
 import Alert from "./components/Alert";
 
@@ -64,6 +70,16 @@ class App extends React.Component<{}, IState> {
     editNote(oldNote, newNote).then((notes) => this.setState({ notes }));
   };
 
+  handleDeleteAll = (): void => {
+    const ans = window.confirm(
+      "Are you sure you want to delete all of your notes?"
+    );
+
+    if (ans) {
+      deleteAllNotes().then((notes) => this.setState({ notes }));
+    }
+  };
+
   public render() {
     const { notes, input, alert } = this.state;
 
@@ -80,7 +96,7 @@ class App extends React.Component<{}, IState> {
         </div>
         <div className="notes-holder">
           {notes.length === 0 ? (
-            <div className="empty-notes" >You don't have any notes!</div>
+            <div className="empty-notes">You don't have any notes!</div>
           ) : (
             notes.map((n) => (
               <Note
@@ -92,7 +108,7 @@ class App extends React.Component<{}, IState> {
             ))
           )}
         </div>
-        <button>Delete all</button>
+        <button onClick={this.handleDeleteAll}>Delete all</button>
       </div>
     );
   }

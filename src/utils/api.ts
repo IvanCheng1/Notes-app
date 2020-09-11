@@ -35,6 +35,12 @@ export const editNote = async (
   return notes;
 };
 
+export const deleteAllNotes = async (): Promise<[]> => {
+  setLocalStorage([])
+
+  return []
+}
+
 const getLocalStorage = (): string[] => {
   return JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "[]");
 };

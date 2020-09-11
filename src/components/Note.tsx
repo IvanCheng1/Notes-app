@@ -33,6 +33,11 @@ class Note extends React.Component<IProps, IState> {
     }
   };
 
+  handleEnter = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    this.handleEditButton()
+  }
+
   handleNewInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.currentTarget;
     this.setState({ newNote: value });
@@ -45,7 +50,9 @@ class Note extends React.Component<IProps, IState> {
     if (edit) {
       return (
         <div className="note-holder note-edit">
-          <Input value={newNote} handleChange={this.handleNewInputChange} />
+          <form className="note-input-field" onSubmit={this.handleEnter}>
+            <Input value={newNote} handleChange={this.handleNewInputChange} />
+          </form>
           <button
             className="delete-btn"
             value={note}

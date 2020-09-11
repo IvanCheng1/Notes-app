@@ -16,7 +16,7 @@ h1 {
 
 form {
   min-height: 50px;
-  min-width: 400px;
+  /* min-width: 400px; */
   display: flex;
   flex-direction: row;
 }
@@ -31,7 +31,7 @@ input {
   min-height: 40px;
   min-width: 300px;
   width: 100%;
-  font-size: x-large;
+  font-size: large;
   background-color: #9ca4b6;
   outline: 0;
   padding: 0 5px;
@@ -42,7 +42,6 @@ input {
 input:focus {
   outline: 0;
 }
-
 
 .note-edit input {
   width: 100%;
@@ -77,6 +76,7 @@ button:focus {
   border: 1px solid white;
   width: 700px;
   min-height: 500px;
+  margin: 10px;
 }
 
 .note-holder {
@@ -92,26 +92,76 @@ button:focus {
   border: none;
 }
 
+.note-input-field {
+  width: 100%;
+}
+
 .note {
   text-align: left;
   width: 100%;
-  padding: 15px 10px;
-
+  padding: 0 10px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-alert,
 .input-alert-spaceholder {
   color: red;
-  height: 50px;
+  height: 30px;
   width: 400px;
   font-size: large;
   text-align: left;
   padding: 15px 5px;
 }
 
+.empty-notes {
+  padding: 15px 0 ;
+  color: grey;
+}
 
 /* ====================== OTHER ====================== */
 
 .box {
   border: 1px solid red;
+}
+
+/* ====================== TABLET ====================== */
+
+@media (max-width: 800px) {
+  .notes-holder {
+    min-width: 525px;
+    width: 80%;
+    /* min-height: 500px; */
+  }
+}
+
+/* ====================== MOBILE ====================== */
+
+@media (max-width: 600px) {
+  .notes-holder {
+    min-width: 300px;
+    width: 90%;
+    margin: 10px 10px 50px 10px;
+  }
+
+  
+
+  form {
+    min-height: 50px;
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  input {
+    min-width: 100px;
+  }
+
+  .input-alert,
+  .input-alert-spaceholder {
+    width: 300px;
+  }
+
+ 
 }

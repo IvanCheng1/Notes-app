@@ -70,21 +70,27 @@ class App extends React.Component<{}, IState> {
     return (
       <div className="App">
         <h1>Notes App</h1>
-        <InputField
-          value={input}
-          handleInputChange={this.handleInputChange}
-          handleAddNote={this.handleAddNote}
-        />
-        <Alert alert={alert} />
+        <div className="input-header">
+          <InputField
+            value={input}
+            handleInputChange={this.handleInputChange}
+            handleAddNote={this.handleAddNote}
+          />
+          <Alert alert={alert} />
+        </div>
         <div className="notes-holder">
-          {notes.map((n) => (
-            <Note
-              note={n}
-              key={n}
-              handleDelete={this.handleDeleteNote}
-              handleEditNote={this.handleEditNote}
-            />
-          ))}
+          {notes.length === 0 ? (
+            <div className="empty-notes" >You don't have any notes!</div>
+          ) : (
+            notes.map((n) => (
+              <Note
+                note={n}
+                key={n}
+                handleDelete={this.handleDeleteNote}
+                handleEditNote={this.handleEditNote}
+              />
+            ))
+          )}
         </div>
       </div>
     );

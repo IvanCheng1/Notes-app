@@ -11,7 +11,7 @@ const InputField = ({ value, handleInputChange, handleAddNote }: IProps) => {
   return (
     <form className="input-field" onSubmit={(e) => e.preventDefault()}>
       <Input value={value} handleChange={handleInputChange} />
-      <button onClick={handleAddNote}>+</button>
+      <button className="plus-button" onClick={handleAddNote}>+</button>
     </form>
   );
 };

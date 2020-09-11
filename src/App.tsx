@@ -108,7 +108,7 @@ class App extends React.Component<{}, IState> {
             ))
           )}
         </div>
-        <button onClick={this.handleDeleteAll}>Delete all</button>
+        <button className="delete-all" onClick={this.handleDeleteAll}>Delete all</button>
       </div>
     );
   }

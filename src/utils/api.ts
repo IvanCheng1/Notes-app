@@ -37,7 +37,6 @@ export const editNote = async (
 
 export const deleteAllNotes = async (): Promise<[]> => {
   setLocalStorage([])
-
   return []
 }
 

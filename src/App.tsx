@@ -36,12 +36,12 @@ class App extends React.Component<{}, IState> {
       this.setState({
         alert: "Please enter a note",
       });
-    } else if (notes.includes(input)) {
+    } else if (notes.includes(input.trim())) {
       this.setState({
         alert: "Please enter a different note",
       });
     } else {
-      addNote(input).then((notes) =>
+      addNote(input.trim()).then((notes) =>
         this.setState({
           input: "",
           notes,
@@ -92,6 +92,7 @@ class App extends React.Component<{}, IState> {
             ))
           )}
         </div>
+        <button>Delete all</button>
       </div>
     );
   }

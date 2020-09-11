@@ -7,3 +7,13 @@ A React web application that allows users to quickly save short notes. This was 
 </p>
 
 Website is hosted at [Netlify](https://simple-notes-app.netlify.app/).
+
+## Instructions
+
+1. Clone the repo or download all the files
+2. Install all the dependencies with `yarn install`
+3. Start the development server with `yarn start`
+
+## Authors
+
+* Ivan Cheng 

@@ -85,7 +85,7 @@ class App extends React.Component<{}, IState> {
 
     return (
       <div className="App">
-        <h1>Notes App</h1>
+        <h1>My Notes</h1>
         <div className="input-header">
           <InputField
             value={input}
@@ -108,7 +108,9 @@ class App extends React.Component<{}, IState> {
             ))
           )}
         </div>
-        <button className="delete-all" onClick={this.handleDeleteAll}>Delete all</button>
+        <button className="delete-all" onClick={this.handleDeleteAll}>
+          Delete all
+        </button>
       </div>
     );
   }

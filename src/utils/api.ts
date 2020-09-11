@@ -1,8 +1,7 @@
 const NOTES_STORAGE_KEY = "NOTES_STORAGE_KEY";
 
 export const getNotes = async (): Promise<string[] | []> => {
-  // localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(["Welcome note"]))
-
+  checkLocalStorage();
   return getLocalStorage();
 };
 
@@ -36,9 +35,15 @@ export const editNote = async (
 };
 
 export const deleteAllNotes = async (): Promise<[]> => {
-  setLocalStorage([])
-  return []
-}
+  setLocalStorage([]);
+  return [];
+};
+
+const checkLocalStorage = (): void => {
+  if (localStorage.getItem(NOTES_STORAGE_KEY) === null) {
+    setLocalStorage(["Hello World!"]);
+  }
+};
 
 const getLocalStorage = (): string[] => {
   return JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "[]");

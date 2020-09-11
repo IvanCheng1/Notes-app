@@ -34,9 +34,9 @@ class Note extends React.Component<IProps, IState> {
   };
 
   handleEnter = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    this.handleEditButton()
-  }
+    e.preventDefault();
+    this.handleEditButton();
+  };
 
   handleNewInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.currentTarget;

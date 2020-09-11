@@ -16,13 +16,12 @@ h1 {
 
 form {
   min-height: 50px;
-  /* min-width: 400px; */
+
   display: flex;
   flex-direction: row;
 }
 
 .input-field * {
-  /* background-color: aqua; */
   margin-left: 2px;
   margin-right: 2px;
 }
@@ -35,8 +34,6 @@ input {
   background-color: #9ca4b6;
   outline: 0;
   padding: 0 5px;
-  /* border: none; */
-  /* border-radius: 10px; */
 }
 
 input:focus {
@@ -48,20 +45,12 @@ input:focus {
 }
 
 button {
-  /* margin: 10px auto; */
   padding: 10px;
   background-color: #454d5ea3;
-  /* height: 100%; */
-  /* border: 2px solid rgba(13, 174, 177, 0.406); */
-  cursor: pointer;
-  /* border-radius: 10px; */
-  min-width: 70px;
-  /* transition: all ease 1s; */
-}
 
-button:hover {
-  /* outline: 0; */
-  /* font-weight: 700; */
+  cursor: pointer;
+
+  min-width: 70px;
 }
 
 button:focus {
@@ -80,7 +69,6 @@ button:focus {
 }
 
 .note-holder {
-  /* width: 90%; */
   min-height: 64px;
   margin: 0 auto;
   border-top: 1px solid grey;
@@ -103,6 +91,7 @@ button:focus {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  background-color: #20252b;
 }
 
 .input-alert,
@@ -116,7 +105,7 @@ button:focus {
 }
 
 .empty-notes {
-  padding: 15px 0 ;
+  padding: 15px 0;
   color: grey;
 }
 
@@ -141,7 +130,6 @@ button:focus {
   .notes-holder {
     min-width: 525px;
     width: 80%;
-    /* min-height: 500px; */
   }
 }
 
@@ -151,10 +139,7 @@ button:focus {
   .notes-holder {
     min-width: 300px;
     width: 90%;
-    /* margin: 10px 10px 50px 10px; */
   }
-
-  
 
   form {
     min-height: 50px;
@@ -171,6 +156,4 @@ button:focus {
   .input-alert-spaceholder {
     width: 300px;
   }
-
- 
 }
